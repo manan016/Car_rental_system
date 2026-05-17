@@ -16,15 +16,10 @@ const app = express();
 
 // Global Middlewares
 app.use(cors({
-    origin: function(origin, callback) {
-        // allow requests with no origin (like mobile apps or curl requests)
-        if(!origin) return callback(null, true);
-        if(origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1')) {
-            return callback(null, true);
-        }
-        return callback(null, true); // Just allow everything for development
-    },
+    origin: process.env.FRONTEND_URL || true, // Reflect the request origin or use env
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json()); // Body parser
 
