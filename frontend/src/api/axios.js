@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Enterprise-grade Axios Instance
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5000/api/v1', // Target our new backend
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1', // Target backend via env variable
     headers: {
         'Content-Type': 'application/json',
     },
