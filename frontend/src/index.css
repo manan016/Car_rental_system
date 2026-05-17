@@ -1,0 +1,17 @@
+/* Global index styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #111b21;
+    color: #fff;
+    overflow-x: hidden;
+}
