@@ -1,8 +1,14 @@
 import axios from 'axios';
 
 // Enterprise-grade Axios Instance
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+
+if (!baseURL) {
+    console.error("CRITICAL ERROR: VITE_API_BASE_URL is not defined! API requests will fail.");
+}
+
 const apiClient = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL, // Target backend via env variable
+    baseURL: baseURL, // Target backend via env variable
     headers: {
         'Content-Type': 'application/json',
     },
